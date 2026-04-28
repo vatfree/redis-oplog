@@ -18,7 +18,7 @@ import { Roles } from 'meteor/roles'
 //     Meteor.users.update({_id:userId}, {$unset:{status:true}})
 // });
 
-Meteor.publish('accounts_userData', function(options) {
+Meteor.publish('accounts_userData', async function (options) {
     const uid = this.userId;
 
     if (!uid) {

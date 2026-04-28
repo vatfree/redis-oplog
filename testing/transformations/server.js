@@ -2,10 +2,10 @@ import { Meteor } from 'meteor/meteor';
 import { assert } from 'chai';
 import { Items } from './collections';
 
-Meteor.publish('transformations_items', function() {
+Meteor.publish('transformations_items', async function () {
     return Items.find();
 });
-Meteor.publish('transformations_items_custom', function() {
+Meteor.publish('transformations_items_custom', async function () {
     return Items.find(
         {
             context: 'client',

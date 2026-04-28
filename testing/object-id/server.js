@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { SmartIds } from './collections';
 
-Meteor.publish('smart_ids', function(filters = {}) {
+Meteor.publish('smart_ids', async function (filters = {}) {
     return SmartIds.find(filters);
 });
 

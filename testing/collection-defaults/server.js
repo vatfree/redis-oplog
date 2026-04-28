@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor'
 import { Items } from './collections';
 
 if (Meteor.isServer) {
-    Meteor.publish('collection_defaults.items', function(...args) {
+    Meteor.publish('collection_defaults.items', async function (...args) {
         return Items.find(...args);
     });
 }

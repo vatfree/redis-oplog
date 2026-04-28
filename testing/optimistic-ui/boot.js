@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { Items } from './collections';
 
 if (Meteor.isServer) {
-    Meteor.publish('optimistic_ui.items', function(...args) {
+    Meteor.publish('optimistic_ui.items', async function (...args) {
         return Items.find(...args);
     });
 }

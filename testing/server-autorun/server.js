@@ -3,7 +3,7 @@ import { Orders, Items } from './collections';
 import './publication';
 
 
-Meteor.publish('server_autorun_test', function () {
+Meteor.publish('server_autorun_test', async function () {
     this.autorun(function () {
         const order = Orders.findOne({valid: true});
 
@@ -14,7 +14,7 @@ Meteor.publish('server_autorun_test', function () {
 });
 
 Meteor.methods({
-    'server_autorun_boot'() {
+  async   'server_autorun_boot'() {
         Orders.remove({});
         Items.remove({});
 
@@ -23,7 +23,7 @@ Meteor.methods({
         Items.insert({name: 'Item 2', orderId});
         Items.insert({name: 'Item 3', orderId});
     },
-    'server_autorun_invalidate_order'() {
+  async   'server_autorun_invalidate_order'() {
         Orders.update({}, {
             $set: {valid: false}
         })

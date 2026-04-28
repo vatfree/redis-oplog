@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Campaigns } from './collections';
 
-Meteor.publish('campaign_search', function(search, pollingIntervalMs = 100) {
+Meteor.publish('campaign_search', async function (search, pollingIntervalMs = 100) {
     var query = { $text: { $search: search } };
     return Campaigns.find(query, {
         disableOplog: true,
